@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 WEEK_KOR = {0: "월", 1: "화", 2: "수", 3: "목", 4: "금", 5: "토", 6: "일"}
 
@@ -47,7 +48,21 @@ def main():
     s_mean = get_mean_consumption(df)
     print(s_mean)
 
+    # 4. 시간대별로 전력 소비량 구하기
+    df['hour'] = df['DateTime'].dt.hour
+    s_mean = df.groupby('hour')['Consumption'].mean()
+    print(s_mean)
 
+    #5. 요일 별 전력 소비량의 그래프 출력
+    s_mean.plot(kind='bar')
+    plt.show()
+    
+    #6. 시간대별 전력 소비량의 그래프 출력
+    s_mean.plot(kind='line')
+    plt.show()
+    
+    
+    
 if __name__ == "__main__":
     main()
 

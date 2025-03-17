@@ -7,11 +7,14 @@ def main():
     x = np.arange(10)
     
     # 초기 figure와 축을 설정합니다.
-    fig, ax = None
+    fig, ax = plt.subplots()                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
     
+
+    ax.plot(x, x, label='y=x', marker='o', color='blue', linestyle=':')
     # y = x 그래프를 그립니다. 따라서 x 데이터는 x, y 데이터도 x로 설정합니다.
     # label은 'y=x'로 설정하고, 마커는 'o', 마커 색깔은 'blue', 그래프의 선 스타일은 ':'로 설정합니다.
-    None
+    
+
     
     # y = x^2 그래프를 그립니다. 따라서 x 데이터는 x, y 데이터는 x**2으로 설정합니다.
     # label은 'y=x^2'로 설정하고, 마커는 '^', 마커 색깔은 'red', 그래프의 선 스타일은 '--'로 설정합니다.

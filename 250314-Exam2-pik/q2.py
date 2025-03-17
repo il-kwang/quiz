@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-DATA_PATH = './data/taxi_fare_data.csv'
+DATA_PATH = './250314-Exam2-pik/data/taxi_fare_data.csv'
 
 def load_csv(path):
     # pandas를 이용하여 'taxi_fair_data.csv' 데이터를 불러옵니다.

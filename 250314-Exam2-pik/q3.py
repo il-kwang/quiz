@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # 데이터 주소
-DATA_PATH = 'data/taxi_fare_data.csv'
+DATA_PATH = './250314-Exam2-pik/data/taxi_fare_data.csv'
 
 # pandas를 이용하여 데이터를 DataFrame의 형태로 불러오는 load_csv 함수를 설정합니다.
 def load_csv(path):

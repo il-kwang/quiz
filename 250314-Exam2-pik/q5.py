@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 # CSV 파일 불러오기
-df = pd.read_csv("taxi_fare_data.csv", quoting=3)
+df = pd.read_csv("./250314-Exam2-pik/data/taxi_fare_data.csv", quoting=3)
 
 # UTC 제거 (혹시 남아 있는 공백도 정리)
 df['pickup_datetime'] = df['pickup_datetime'].str.replace(" UTC", "", regex=False).str.strip()

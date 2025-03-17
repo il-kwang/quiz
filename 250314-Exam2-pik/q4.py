@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-DATA_PATH = "./data/taxi_fare_data.csv"
+DATA_PATH = "./250314-Exam2-pik/data/taxi_fare_data.csv"
 
 # 데이터를 DataFram의 형태로 불러옵니다.
 df = pd.read_csv(DATA_PATH, quoting=3)

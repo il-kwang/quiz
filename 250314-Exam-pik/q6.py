@@ -28,18 +28,20 @@ print(div,'\n')
 # 3 x 3 데이터프레임을 정렬해보세요.
 C = pd.DataFrame([[1,3,5],[15,10,5],[2,8,5]], index = ['a','b','c'], columns = ['d','e','f'])
 
+
 # c 행에 대해 오름차순 정렬
-row_C = None
+row_C = C.loc['c'].sort_values(ascending=True)
+
 
 # e 열에 대해 내림차순 정렬
-column_C = None
+column_C = C.loc[:, 'e'].sort_values(ascending=False)
 
 print(row_C,'\n')
 print(column_C,'\n')
 
 # 데이터 csv로 저장 및 불러오기
 # index를 False로 설정하면 저장할 때 추가 인덱스를 달지 않습니다.
-row_C = None
-load_C = None
+row_C = row_C.reset_index(drop=True)
+load_C = row_C.to_csv('load_C.csv', index=False)
 
 print(load_C)
