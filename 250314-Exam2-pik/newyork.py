@@ -10,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 #뉴욕택시 데이터
-path = './data/train.csv' #./250314-Exam2-pik/data/taxi_fare_data.csv
+path = './250314-Exam2-pik/data/train.csv' #./250314-Exam2-pik/data/taxi_fare_data.csv
 
 #뉴욕택시 데이터 불러오기
 df = pd.read_csv(path)
@@ -33,7 +33,7 @@ plt.scatter(df['distance'], df['fare_amount'])
 plt.xlabel('이동 거리')
 plt.ylabel('지불 가격')
 plt.savefig('가격과 거리의 상관관계.png')
-plt.show()
+#plt.show()
 
 #사이킷런 구현하기
 #모델링 기본 구조
@@ -62,7 +62,7 @@ plt.scatter(df['distance'], df['fare_amount'])
 plt.xlabel('이동 거리')
 plt.ylabel('지불 가격')
 plt.savefig('가격과 지불 이동 거리의 상관관계 이상치 제거거.png')
-plt.show()
+#plt.show()
 
 #사이킷런 구현하기
 x = df[['distance']]
@@ -74,3 +74,41 @@ lr.fit(df[['distance']], df['fare_amount'])
 print('절편 :',lr.intercept_)
 print('회귀 계수 :',lr.coef_)
 print(lr.score(df[['distance']],df['fare_amount']))
+
+#이상치 판단
+#이동 거리가 0인 데이터 제거하기
+df = df[df['distance'] != 0]
+
+#이동 거리와 지불 가격의 상관관계 구하기
+plt.scatter(df['distance'], df['fare_amount'])
+plt.xlabel('이동 거리')
+plt.ylabel('지불 가격') 
+plt.savefig('이동거리 이상치 추가 제거.png')
+#plt.show()
+
+#사이킷런 구현하기
+x = df[['distance']]
+y = df['fare_amount']
+
+lr = LinearRegression(fit_intercept=True)
+lr.fit(x,y)
+lr.fit(df[['distance']], df['fare_amount'])
+print('절편 :',lr.intercept_)
+print('회귀 계수 :',lr.coef_)
+print(lr.score(df[['distance']],df['fare_amount']))
+
+def get_negative_index(df):
+    return df[df < 0].index
+
+
+#이상치 제거 outlier_index 함수
+def outlier_index(df):
+    idx_fare_amount = get_negative_index(df['fare_amount'])
+    idx_passenger_count = get_negative_index(df['passenger_count'])
+    idx_zero_distance = df[
+        (df['pickup_longitude'] == df['dropoff_longitude']) & 
+        (df['pickup_latitude'] == df['dropoff_latitude'])
+    ].index.tolist()
+    return list(set(idx_fare_amount + idx_passenger_count + idx_zero_distance))
+
+print(outlier_index(df))
