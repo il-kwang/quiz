@@ -97,18 +97,90 @@ print('절편 :',lr.intercept_)
 print('회귀 계수 :',lr.coef_)
 print(lr.score(df[['distance']],df['fare_amount']))
 
-def get_negative_index(df):
-    return df[df < 0].index
+def get_negative_index(df):  #이상치 판단 함수 음수값을 찾는 함수
+    return df[df < 0].index 
 
 
-#이상치 제거 outlier_index 함수
+# 이상치 제거 함수입니다.
+# 이 함수는 데이터프레임에서 이상치 데이터를 찾아 제거합니다.
 def outlier_index(df):
-    idx_fare_amount = get_negative_index(df['fare_amount'])
+    # fare_amount 열에서 음수 값을 갖는 인덱스를 찾습니다.
+    # 음수 값은 이상치 데이터로 간주합니다.
+    idx_fare_amount = get_negative_index(df['fare_amount']) 
+    
+    # passenger_count 열에서 음수 값을 갖는 인덱스를 찾습니다.
+    # 음수 값은 이상치 데이터로 간주합니다.
     idx_passenger_count = get_negative_index(df['passenger_count'])
+    
+    # pickup_longitude와 dropoff_longitude가 같고, pickup_latitude와 dropoff_latitude가 같은 데이터의 인덱스를 찾습니다.
+    # 이 경우는 거리가 0이라는 것을 의미하므로, 이상치 데이터로 간주합니다.
     idx_zero_distance = df[
         (df['pickup_longitude'] == df['dropoff_longitude']) & 
         (df['pickup_latitude'] == df['dropoff_latitude'])
-    ].index.tolist()
-    return list(set(idx_fare_amount + idx_passenger_count + idx_zero_distance))
+    ].index
+    
+    # 이상치 데이터의 인덱스를 결합하여 중복을 제거하고, 반환합니다.
+    # 반환할 때 ValueError가 발생하는 것을 방지하기 위해 인덱스를 리스트로 변환합니다.
+    return list(set(idx_fare_amount.tolist() + idx_passenger_count.tolist() + idx_zero_distance.tolist()))
 
 print(outlier_index(df))
+
+#위에 이상치 제거 중 애러 발생생
+
+def remove_outlier(df, list_idx):#이상치 제거 함수
+    return df.drop(index=list_idx) # 이상치 제거
+
+#이상치 제거 후 상관관계 구하기
+df = remove_outlier(df, outlier_index(df)) 
+plt.scatter(df['distance'], df['fare_amount'])
+plt.xlabel('이동 거리')
+plt.ylabel('지불 가격')
+plt.savefig('이상치 제거 후 상관관계 구하기.png') #
+#plt.show() 
+
+#사이킷런 구현하기
+x = df[['distance']]
+y = df['fare_amount']
+
+lr = LinearRegression(fit_intercept=True)
+lr.fit(x,y)
+lr.fit(df[['distance']], df['fare_amount'])
+print('절편 :',lr.intercept_)
+print('회귀 계수 :',lr.coef_)
+print(lr.score(df[['distance']],df['fare_amount']))
+
+'''
+#DBSSCAN 알고리즘을 이용한 클러스터링
+from sklearn.cluster import DBSCAN
+from sklearn import metrics
+
+# 날짜형 데이터를 제거합니다.
+df = df.drop(['pickup_datetime', 'dropoff_datetime'], axis=1)
+
+# DBSCAN 알고리즘을 적용합니다.
+dbscan = DBSCAN(eps=0.5, min_samples=10)
+
+# 데이터를 클러스터링합니다.
+clusters = dbscan.fit_predict(df)
+
+# 이상치 데이터를 식별합니다.
+dbscan_outliers = df[clusters == -1]
+
+# 이상치 데이터를 제거합니다.
+df_clean = df[clusters != -1]
+
+# 성능 평가하기
+print('DBSCAN 성능 평가')
+print('DBSCAN 성능 평가 :', metrics.silhouette_score(df_clean, clusters))
+print('DBSCAN 성능 평가 :', metrics.calinski_harabaz_score(df_clean, clusters))
+print('DBSCAN 성능 평가 :', metrics.davies_bouldin_score(df_clean, clusters))
+
+#이상치 제거 후 상관관계 구하기
+plt.scatter(df_clean['distance'], df_clean['fare_amount'])
+plt.xlabel('이동 거리')
+plt.ylabel('지불 가격')
+plt.savefig('DBSCAN 이상치 제거 후 상관관계 구하기.png')
+'''
+
+
+
