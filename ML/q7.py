@@ -23,7 +23,7 @@ def load_data():
 # Confusion matrix 시각화를 위한 함수입니다.
 def plot_confusion_matrix(cm, y_true, y_pred, classes, normalize=False, cmap=plt.cm.OrRd):
                           
-    title = ""
+    title = 'Confusion matrix'
     if normalize:
         title = 'Normalized confusion matrix'
     else:
@@ -68,18 +68,18 @@ def plot_confusion_matrix(cm, y_true, y_pred, classes, normalize=False, cmap=plt
 """
 def main():
     
-    train_X, test_X, train_y, test_y, class_names = None
+    train_X, test_X, train_y, test_y, class_names = load_data()
     
     # SVM 모델로 분류기를 생성하고 학습합니다.
     classifier = SVC()
     y_pred = classifier.fit(train_X, train_y).predict(test_X)
     
-    cm = None
+    cm = confusion_matrix(test_y, y_pred)
     
-    plot_confusion_matrix(None, None, None, classes=None)
+    plot_confusion_matrix(cm, test_y, y_pred, classes=class_names, normalize=False)
     
     # 정규화 된 혼동 행렬을 시각화합니다.
-    plot_confusion_matrix(None, None, None, classes=None, normalize = None)
+    plot_confusion_matrix(cm, test_y, y_pred, classes=class_names, normalize=True)
     
     return cm
     

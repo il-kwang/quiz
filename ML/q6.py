@@ -1,5 +1,4 @@
 from sklearn.datasets import load_wine
-
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
@@ -15,7 +14,7 @@ def load_data():
     
     print("데이터 확인해보기 :\n", X[:1])
     
-    train_X, test_X, train_y, test_y = None
+    train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.3, random_state=42)
     
     return train_X, test_X, train_y, test_y
     
@@ -26,11 +25,11 @@ def load_data():
 """
 def Gaussian_NB(train_X, test_X, train_y, test_y):
     
-    model = None
+    model = load_data()
     
-    None
-    
-    predicted = None
+    model.fit(train_X, train_y)
+   
+    predicted = model.predict(test_X)
     
     return predicted
     

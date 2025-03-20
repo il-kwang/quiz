@@ -7,22 +7,22 @@ import numpy as np
 """
 def bayes_theorem():
     # 1. P(“스팸 메일”) 의 확률을 구하세요.
-    p_spam = None
+    p_spam = 8/20
     
     # 2. P(“확인” | “스팸 메일”) 의 확률을 구하세요.
-    p_confirm_spam = None
+    p_confirm_spam = 5/8
     
     # 3. P(“정상 메일”) 의 확률을 구하세요.
-    p_ham = None
+    p_ham = 12/20
     
     # 4. P(“확인” | "정상 메일" ) 의 확률을 구하세요.
-    p_confirm_ham = None
+    p_confirm_ham = 2/12
     
     # 5. P( "스팸 메일" | "확인" ) 의 확률을 구하세요.
-    p_spam_confirm = None
+    p_spam_confirm = 5/8
     
     # 6. P( "정상 메일" | "확인" ) 의 확률을 구하세요.
-    p_ham_confirm = None
+    p_ham_confirm = 2/12
     
     return p_spam_confirm, p_ham_confirm
 

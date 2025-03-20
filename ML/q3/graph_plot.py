@@ -25,4 +25,5 @@ def svm_model_plot(trained_svm, feature, label, feature_name):
     plt.xlabel(feature_name[0])
     plt.ylabel(feature_name[1])
     
-    plt.savefig("result3.png")
+    plt.savefig("q3result.png")
+    plt.show()
