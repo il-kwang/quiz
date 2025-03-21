@@ -77,8 +77,6 @@ def main():
     
     cm = confusion_matrix(test_y, y_pred)
     
-    plot_confusion_matrix(cm, test_y, y_pred, classes=class_names, normalize=False)
-    
     # 정규화 된 혼동 행렬을 시각화합니다.
     plot_confusion_matrix(cm, test_y, y_pred, classes=class_names, normalize=True)
     
