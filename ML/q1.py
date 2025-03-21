@@ -30,7 +30,7 @@ def plot_logistic_regression(model, X_data, y_data):
     plt.yticks([0, 0.5, 1])
     plt.ylim(-.25, 1.25)
     plt.xlim(-4, 10)
-    plt.legend(('Logistic Regression Model', 'Linear Regression Model'),
+    plt.legend(('Linear Regression Model', ' Logistic Regression Model'), #표에 종류 잘 못나옴 선형 그래프 잘못낭모
                loc="lower right", fontsize='small')
     plt.tight_layout()
     plt.show()
