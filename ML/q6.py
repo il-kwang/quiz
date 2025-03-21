@@ -12,7 +12,7 @@ def load_data():
     
     X, y = load_wine(return_X_y = True)
     
-    print("데이터 확인해보기 :\n", X[:1])
+    print("데이터 확인해보기 :\n", X[:1],y[0])
     
     train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.3, random_state=42)
     
@@ -25,7 +25,7 @@ def load_data():
 """
 def Gaussian_NB(train_X, test_X, train_y, test_y):
     
-    model = load_data()
+    model = GaussianNB()
     
     model.fit(train_X, train_y)
    

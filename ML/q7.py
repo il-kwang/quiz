@@ -61,6 +61,7 @@ def plot_confusion_matrix(cm, y_true, y_pred, classes, normalize=False, cmap=plt
     fig.tight_layout()
     
     plt.savefig('confusion matrix.png')
+    plt.show()
 
 """
 1. 혼동 행렬을 계산하고, 
