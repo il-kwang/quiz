@@ -24,3 +24,6 @@ Embarked: 탑승 항구 => C = Cherbourg, Q = Queenstown, S = Southampton - 결�
 확인 #나이 177개 결측치, Cabin 687개 결측치, Embarked 2개 결측치
 
 객실 번호는 안쓸 예정.
+
+생존자 비율 확인
+여자가 남자보다 생존 확률이 높다
