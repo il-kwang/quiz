@@ -1,0 +1,13 @@
+<mxfile host="65bd71144e">
+    <diagram id="NqHEuCt4sYuugOE0wA8o" name="페이지-1">
+        <mxGraphModel dx="2114" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" value="flowchart TD&#xa;  A[문제 정의]&#xa;  B[데이터 수집]&#xa;  C[데이터 탐색 및 전처리]&#xa;  D[특성 공학]&#xa;  E[모델 선택]&#xa;  F[모델 학습]&#xa;  G[모델 평가]&#xa;  H[모델 튜닝]&#xa;  I[최종 모델 선택 및 테스트]&#xa;  J[모델 배포 및 모니터링]&#xa;  &#xa;  A --&gt; B&#xa;  B --&gt; C&#xa;  C --&gt; D&#xa;  D --&gt; E&#xa;  E --&gt; F&#xa;  F --&gt; G&#xa;  G --&gt; H&#xa;  H --&gt; I&#xa;  I --&gt; J&#xa;" style="shadow=0;dashed=0;align=left;strokeWidth=1;shape=mxgraph.mermaid.abstract.mermaid;labelBackgroundColor=#ffffff;noLabel=1;theme=default;" parent="1" vertex="1">
+                    <mxGeometry x="-450" y="10" width="360" height="610" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

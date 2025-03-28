@@ -1,0 +1,28 @@
+<mxfile host="65bd71144e">
+    <diagram id="s3t2ZBnXcgubP0mMn4mv" name="페이지-1">
+        <mxGraphModel dx="566" dy="516" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="15" value="&lt;h1&gt;심장질환데이터셋&amp;nbsp;&lt;/h1&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="274" y="30" width="280" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="flowchart TD&#xa;    A[분류 문제]&#xa;    B[데이터 수집]&#xa;    C[데이터 탐색 및 전처리]&#xa;    D[특성 공학]&#xa;    E[모델 선택]&#xa;    F[모델 학습]&#xa;    G[모델 평가]&#xa;    H[모델 튜닝]&#xa;    I[최종 모델 선택 및 테스트]&#xa;    J[모델 배포 및 모니터링]&#xa;    &#xa;    A --&gt; B&#xa;    B --&gt; C&#xa;    C --&gt; D&#xa;    D --&gt; E&#xa;    E --&gt; F&#xa;    F --&gt; G&#xa;    G --&gt; H&#xa;    H --&gt; I&#xa;    I --&gt; J&#xa;&#xa;" style="shadow=0;dashed=0;align=left;strokeWidth=1;shape=mxgraph.mermaid.abstract.mermaid;labelBackgroundColor=#ffffff;noLabel=1;theme=default;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="130" width="350" height="1000" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="18" target="19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;목적 : 심장진환 데이터를 확인하고 질환여부 분류&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="323" y="130" width="266" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;캐글 데이터 활용&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="396" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="데이터 분포 확인 O&lt;div&gt;이상치 및 결측값 확인 ⚠️&lt;/div&gt;&lt;div&gt;&lt;br style=&quot;color: rgb(63, 63, 63);&quot;&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="342.5" y="327" width="227" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
