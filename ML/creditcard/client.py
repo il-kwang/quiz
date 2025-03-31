@@ -9,7 +9,9 @@ url = 'http://127.0.0.1:5000/predict'
 #C:/Users/302/Documents/미래융합교육원/quiz/ML/creditcard/X_train_over_no_target.csv
 csv_path = "C:/Users/302/Documents/미래융합교육원/quiz/ML/creditcard/X_train_over_100_target.csv"
 
-data = pd.read_csv(csv_path)
+csv_path_home = "C:/Users/user/OneDrive/문서/미래융합교육원/quiz/ML/creditcard/X_train_over_100_target.csv"
+
+data = pd.read_csv(csv_path_home)
 
 # 3. 입력 데이터 준비
 input_data = data.to_dict(orient='records')
